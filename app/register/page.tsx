@@ -55,7 +55,7 @@ const RegistrationPage = () => {
                     Email Address
                   </FormLabel>
                   <FormControl>
-                    <Input placeholder="Email Address" type="email" className="text-hotpink-800" {...field} />
+                    <Input placeholder="BellCranel@Hestia-Sama.com" type="email" className="text-skyBlue-400 placeholder:text-grayViolet-400" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -74,7 +74,7 @@ const RegistrationPage = () => {
                       First Name
                     </FormLabel>
                     <FormControl>
-                      <Input placeholder="Bell" type="text" className="text-hotpink-800" {...field} />
+                      <Input placeholder="Bell" type="text" className="text-skyBlue-400 placeholder:text-grayViolet-400" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -91,7 +91,7 @@ const RegistrationPage = () => {
                       Last Name
                     </FormLabel>
                     <FormControl>
-                      <Input placeholder="Cranel" type="text" className="text-hotpink-800" {...field} />
+                      <Input placeholder="Cranel" type="text" className="text-skyBlue-400 placeholder:text-grayViolet-400" {...field} />
                     </FormControl>
                   </FormItem>
                 )
@@ -113,7 +113,7 @@ const RegistrationPage = () => {
                       Password
                     </FormLabel>
                     <FormControl>
-                      <Input placeholder="かわいい" type="password" className="text-hotpink-800" {...field} />
+                      <Input placeholder="かわいい" type="password" className="text-skyBlue-400 placeholder:text-grayViolet-400" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -135,7 +135,7 @@ const RegistrationPage = () => {
                       Confirm Password
                     </FormLabel>
                     <FormControl>
-                      <Input placeholder="かわいい" type="password" className="text-hotpink-800" {...field} />
+                      <Input placeholder="かわいい" type="password" className="text-skyBlue-400 placeholder:text-grayViolet-400" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -145,6 +145,7 @@ const RegistrationPage = () => {
           </div>
           <Button
             type="submit"
+            style={{float: "right"}}
             className="mt-5 border-2 border-hotpink-200 bg-hotpink-200 text-skyBlue-600 text-lg 
             hover:bg-skyBlue-600 hover:text-hotpink-200 hover:border-skyBlue-600 
             active:bg-hotpink-50 active:text-skyBlue-600"

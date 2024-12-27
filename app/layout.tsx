@@ -21,7 +21,8 @@ export default function RootLayout({
             <div className="flex w-full justify-between">
               <Link href={"/"}>Home</Link>
               <div>
-                <Link className="mr-7" href={"/register"}>Register</Link>
+                <Link  href={"/register"}>Register</Link>
+                <Link className="mx-7" href={"/addTags"}>Add Tags</Link>
                 <Link href={"/addWord"}>Add New Word</Link>
               </div>
             </div>

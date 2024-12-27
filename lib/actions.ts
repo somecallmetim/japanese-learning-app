@@ -16,3 +16,7 @@ export const addTag = async (data: FormData) => {
     console.log(createManyTags)
     return {message: "tag added"}
 }
+
+export const getAllTags = async () => {
+    return await prisma.tag.findMany()
+}

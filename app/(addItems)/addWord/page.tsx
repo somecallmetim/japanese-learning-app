@@ -1,4 +1,4 @@
-import { getAllTags } from "@/lib/actions"
+import { getAllTags } from "@/lib/tagActions"
 import AddWordForm from "./AddWordForm"
 
 const AddWordPage = async () => {

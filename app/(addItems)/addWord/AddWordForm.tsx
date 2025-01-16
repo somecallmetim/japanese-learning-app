@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button"
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { useState } from "react"
 import { useForm } from "react-hook-form"
 import * as z from "zod"
 import {
@@ -16,6 +15,7 @@ import {
   MultiSelectorTrigger
 } from "@/components/ui/multi-select"
 import { tag } from "@prisma/client"
+import { addNewWord } from "@/lib/wordActions"
 
 type Props = {
   tags: Array<tag>
@@ -28,13 +28,20 @@ const japaneseWordFormSchema = z.object({
 })
 
 const AddWordForm = ({ tags }: Props) => {
-  const [selectedTags, setSelectedTags] = useState<string[]>()
-  const form = useForm<z.infer<typeof japaneseWordFormSchema>>({ resolver: zodResolver(japaneseWordFormSchema), defaultValues: { "tags": ["Noun"] } })
 
+  const form = useForm<z.infer<typeof japaneseWordFormSchema>>({ resolver: zodResolver(japaneseWordFormSchema), defaultValues: { "tags": ["noun"] } })
+
+  const onSubmit = (data: z.output<typeof japaneseWordFormSchema>) => {
+    const formData = new FormData()
+    formData.append("japaneseVocabWord", data.japaneseVocabWord)
+    formData.append("englishDef", data.englishDef)
+    formData.append("tags", JSON.stringify(data.tags))
+    addNewWord(formData)
+  }
 
   return (
     <Form {...form}>
-      <form>
+      <form onSubmit={form.handleSubmit(onSubmit)}>
         <FormField name="japaneseVocabWord" control={form.control} render={({ field }) => {
           return (
             <FormItem>
@@ -78,7 +85,7 @@ const AddWordForm = ({ tags }: Props) => {
                     loop
                   >
                     <MultiSelectorTrigger>
-                      <MultiSelectorInput placeholder="Select languages" className="text-hotpink-300 placeholder:text-grayViolet-400" />
+                      <MultiSelectorInput placeholder="Select Tags" className="text-hotpink-300 placeholder:text-grayViolet-400" />
                     </MultiSelectorTrigger>
                     <MultiSelectorContent>
                       <MultiSelectorList>

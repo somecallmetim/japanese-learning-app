@@ -22,6 +22,8 @@ export default function RootLayout({
               <Link href={"/"}>Home</Link>
               <div>
                 <Link  href={"/register"}>Register</Link>
+                <Link className="ml-7" href={"/flashcards"}>Flashcards</Link>
+                <Link className="ml-7" href={"/showAllWords"}>Show All Words</Link>
                 <Link className="mx-7" href={"/addTags"}>Add Tags</Link>
                 <Link href={"/addWord"}>Add New Word</Link>
               </div>

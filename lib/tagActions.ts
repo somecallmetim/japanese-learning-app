@@ -8,7 +8,8 @@ export const addTag = async (data: FormData) => {
   const formData = Object.fromEntries(data)
 
   const tagsString = formData.tags as string
-  const tags = tagsString.split(",")
+  const rawTags = tagsString.split(",")
+  const tags = rawTags.map( rawTag => rawTag.trim())
 
   const createManyTags = await prisma.tag.createMany({
     data: makeTagsObjectArrayFromTagsArray(tags)

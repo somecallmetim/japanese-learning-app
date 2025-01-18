@@ -4,6 +4,7 @@
 import { revalidatePath } from "next/cache"
 import { prisma } from "./prisma"
 import { makeTagsObjectArrayFromTagsArray } from "./utils"
+import { tag } from "@prisma/client"
 
 export const addNewWord = async (data: FormData) => {
     const formData = Object.fromEntries(data)
@@ -55,4 +56,18 @@ export const addNewWord = async (data: FormData) => {
             tags: true
         }
     })
+  }
+
+  export const getAllWordsWithTag = async (tagName: string) => {
+    console.log(`tagName: ${tagName}`)
+    const results = await prisma.tag.findUnique({
+      where: {
+        name: tagName
+      },
+      include: {
+        vocabularyWords: true
+      }
+    })
+    console.log(results)
+    return results
   }

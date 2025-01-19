@@ -104,7 +104,7 @@ const Flashcard = ({ vocabularyWords }: Props) => {
           </div>
         </div>
 
-        <div className="group h-32 w-full mx-auto mb-4 [perspective:1000px]" onClick={handleFlip}>
+        <div className="group h-32 w-full mx-auto mb-4 [perspective:1000px] cursor-pointer" onClick={handleFlip}>
           <div className={`relative h-full w-full rounded-md transition-all duration-500 [transform-style:preserve-3d] ${isFlipped ? "[transform:rotateX(180deg)]" : ""}`}>
             <div className="absolute inset-0  ">
               <div className={`flex h-full w-full rounded-md items-center justify-center

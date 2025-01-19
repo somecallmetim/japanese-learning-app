@@ -42,9 +42,11 @@ const Flashcard = ({ vocabularyWords }: Props) => {
       if (index < vocabularyWords?.length - 1) {
         setIndex((currentIndex) => currentIndex + 1)
         setCurrentTense(tenseArray[Math.floor(Math.random() * tenseArray.length)])
+        setIsFlipped(false)
       } else {
         setIndex(0)
         setCurrentTense(tenseArray[Math.floor(Math.random() * tenseArray.length)])
+        setIsFlipped(false)
         router.refresh()
       }
     }
@@ -53,6 +55,7 @@ const Flashcard = ({ vocabularyWords }: Props) => {
       vocabularyWords[vocabularyWords.length] = vocabularyWords[index]
       setIndex((currentIndex) => currentIndex + 1)
       setCurrentTense(tenseArray[Math.floor(Math.random() * tenseArray.length)])
+      setIsFlipped(false)
     }
 
     const presentTenseOnChange = () => {
